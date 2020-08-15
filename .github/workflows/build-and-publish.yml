@@ -12,3 +12,10 @@ jobs:
     - name: Build Image
       run: |
         docker image build . -t protonvpn-docker
+
+    - name: Publish Image
+      run: |
+        docker login docker.pkg.github.com -u c01o -p ${{ secrets.GH_PAT }}
+        docker tag protonvpn-docker docker.pkg.github.com/c01o/protonvpn-docker/protonvpn-docker:latest
+        docker push docker.pkg.github.com/c01o/protonvpn-docker/protonvpn-docker:latest
+
