@@ -2,8 +2,8 @@
 set timeout -1
 spawn protonvpn init
 # confirmation
-# expect ": "
-# send -- "y\r"
+expect ": "
+send -- "n\r"
 expect "Enter your ProtonVPN OpenVPN username: "
 send -- "$env(PROTONVPN_USER)\r"
 expect "Enter your ProtonVPN OpenVPN password: "
